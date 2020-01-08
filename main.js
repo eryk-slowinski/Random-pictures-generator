@@ -7,13 +7,16 @@ const drawImage = () => {
         const draw = Math.floor(Math.random() * 10000);
         image.src = `https://picsum.photos/800?random=${draw}`;
         image.style.border = '2px solid black';
+        image.dataset.pic = 'loaded';
     }
 }
 
 const growPic = () => {
-    image.classList.add('bigger-image');
-    bgcDiv.style.filter = 'blur(6px)';
-    button.style.opacity = '0';
+    if (image.dataset.pic === 'loaded') {
+        image.classList.add('bigger-image');
+        bgcDiv.style.filter = 'blur(6px)';
+        button.style.opacity = '0';
+    }
 }
 
 const resizePic = () => {
